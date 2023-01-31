@@ -24,3 +24,7 @@ body {
 #home {
     margin-top: 25px;
 }
+
+.entry {
+    text-align: left;
+}

@@ -8,6 +8,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 app.use(cors());
 app.use(express.json());
+const sql = require('postgres');
+app.use(express.static("public"));
 
 const pool = new Pool ({
         user: 'fatbo',
@@ -78,6 +80,6 @@ app.post('/food', async(req,res) => {
 })
 //start server
 
-app.listen(port, () =>  {
-    console.log(`Listening to port ${port}`)
+app.listen(process.env.PORT, () =>  {
+    console.log(`Listening to port ${process.env.PORT}`)
 })

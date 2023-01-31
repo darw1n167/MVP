@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool ({
+        user: 'fatbo',
         host: 'localhost',
         port: 5432,
         password: '',

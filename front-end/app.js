@@ -9,10 +9,10 @@
 //   })
 
 // }
-
 let $food = $('<div class="food"></div>');
 let home = document.querySelector('#home')
-
+let entries = document.querySelector('#entries')
+let $entries = $('#entries')
 
 const loadFood = async () => {
   await fetch ('http://localhost:8000/food')
@@ -20,13 +20,13 @@ const loadFood = async () => {
   .then((data) => {
     data.forEach((element) => {
       console.log(element)
-      let {food_name} = element;
-      console.log(element.id)
-      console.log(food_name)
+      let div = document.createElement('div');
+      div.innerText = element.food_name;
+     $entries.append(div)
     });
   });
 }
-console.log
+
 
 const populate = (data) => {
 
@@ -34,3 +34,4 @@ const populate = (data) => {
 // loadFood();
 
 home.addEventListener('click', loadFood)
+

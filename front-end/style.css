@@ -1,3 +1,19 @@
 body {
     background-color: blanchedalmond;
 }
+
+#entries {
+    height: 800px;
+}
+
+.table {
+    margin-top: 50px;
+}
+
+#add {
+    margin-bottom: 25px;
+}
+
+#header {
+    padding-bottom: 20px;
+}

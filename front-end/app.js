@@ -1,11 +1,13 @@
-let URL = 'https://macro-tracker.onrender.com/'
+// let URL = 'https://macro-tracker.onrender.com/'
 
-const listedFood = () => {
-  fetch (URL + "food")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data)
+// const listedFood = () => {
+//   fetch (URL + "food")
+//   .then((res) => res.json())
+//   .then((data) => {
+//     console.log(data)
     
-  })
+//   })
 
-}
+// }
+
+let $food = $('<div class="food"></div>');

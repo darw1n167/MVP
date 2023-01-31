@@ -26,7 +26,7 @@ let edit = document.getElementById('edit');
 
 
 const loadFood = async () => {
-  await fetch ('http://localhost:8000/food')
+  await fetch ('/food')
   .then((response) => response.json())
   .then((data) => {
     data.forEach((element) => {
@@ -39,8 +39,10 @@ const loadFood = async () => {
       <td class="entry">${element.protein}</td>
       <td class="entry">${element.calories}</td>
       <td class="buttons">
-      <button class="edit">Edit</button>
+      <div class="dropdown">
+        <button class="edit">Edit</button>
       <button class="delete">Delete</button>
+      </div>
       </td>
     </tr>`);
 
@@ -65,9 +67,9 @@ const populate = (data) => {
 }
 loadFood();
 
-$edit.click((e) => {
-  console.log('Clicked')
-})
+// $edit.click((e) => {
+//   console.log('Clicked')
+// })
 
 // remove.addEventListener('click', (e) => {
 //   console.log('Clicked')

@@ -12,16 +12,16 @@
 </head>
 <body class="bg-success text-center">
     <div id="header">Macro Tracker</div>
-        <button type="button" class="btn btn-primary btn-lg" id="home">Home</button>
+        <button type="button" class="btn btn-primary btn-lg" id="home">Clear</button>
         <div id="container-1" class="container">
             <div id="entries" class="container">
                 <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Carbs</th>
-                        <th scope="col">Fats</th>
-                        <th scope="col">Proteins</th>
+                        <th scope="col">Carbs(g)</th>
+                        <th scope="col">Fats(g)</th>
+                        <th scope="col">Proteins(g)</th>
                         <th scope="col">Calories</th>
                       </tr>
                     </thead>
@@ -33,7 +33,51 @@
             
         </div>
     </div>
+    <div id="add-food">
     <button type="button" class="btn btn-secondary btn-lg" id="add">Add Food</button>
+    <div id="mainContainer" class="container">
+        <div id="newFoodCont" class="container">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="typeInput">Name of food</span>
+            <input
+              type="text"
+              class="form-control"
+              id="typeIn"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="carbInput">Carbs</span>
+            <input
+              type="text"
+              class="form-control"
+              id="carb"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="fatInput">Fats</span>
+            <input
+              type="text"
+              class="form-control"
+              id="fat"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="proteinInput">Protein</span>
+            <input
+              type="text"
+              class="form-control"
+              id="protein"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="calorieInput">Calories</span>
+            <input
+              type="text"
+              class="form-control"
+              id="calorie"
+            />
+          </div>
+    </div>
     
 <script type="text/javascript" src="app.js"></script>
 </body>

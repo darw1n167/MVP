@@ -11,11 +11,11 @@ app.use(express.json());
 
 
 const pool = new Pool ({
-        user: 'fatbo',
-        host: 'localhost',
-        port: 5432,
-        password: '',
-        database: 'food',
+        // user: 'fatbo',
+        // host: 'localhost',
+        // port: 5432,
+        // password: '',
+        // database: 'food',
         connectionString: process.env.URL_DATABASE
 });
 
@@ -56,6 +56,7 @@ app.put('/food/:id', async(req,res)=> {
         console.error(error.message)
     }
 })
+
 //delete
 app.delete('/food/:id', async(req, res) => {
     try {
@@ -72,8 +73,8 @@ app.post('/food', async(req,res) => {
     try {
         const {carbs, fats, protein, calories} = req.body;
         const foodName = req.body.food_name
-         await pool.query('INSERT INTO food (food_name, carbs, fats, protein, calories) VALUES ($1, $2, $3, $4, $5)', [foodName, carbs, fats, protein, calories])
-        res.json('Added')
+         const {rows} = await pool.query('INSERT INTO food (food_name, carbs, fats, protein, calories) VALUES ($1, $2, $3, $4, $5)', [foodName, carbs, fats, protein, calories])
+        res.send(req.body)
     } catch (error) {
         console.error(error)
     }

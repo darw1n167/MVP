@@ -11,7 +11,11 @@ app.use(express.json());
 
 const pool = new Pool ({
         host: 'localhost',
+<<<<<<< HEAD
         user: 'dweezy',
+=======
+        user: 'fatbo',
+>>>>>>> refs/remotes/origin/main
         port: 5432,
         password: '',
         database: 'food'
@@ -38,7 +42,7 @@ app.get('/food/:id', async (req,res) => {
        const {rows} = await pool.query('SELECT * FROM food WHERE id = $1', [id])
        res.json(rows)
     } catch (error) {
-        console.error(err.message)
+        console.error(error.message)
     }
 })
 
@@ -47,11 +51,11 @@ app.get('/food/:id', async (req,res) => {
 app.put('/food/:id', async(req,res)=> {
     try {
         const {id} = req.params; 
-        const {food_name, fats, proteins, calories} = req.body;
-        await pool.query('UPDATE food SET food_name = $1, carbs = $2, fats = $3, proteins = $4, calories = $5 WHERE id = $6', [food_name, carbs, fats, proteins, calories, id]);
+        const {food_name, carbs, fats, protein, calories} = req.body;
+        await pool.query('UPDATE food SET food_name = $1, carbs = $2, fats = $3, protein = $4, calories = $5 WHERE id = $6', [food_name, carbs, fats, protein, calories, id]);
         res.json('Updated food where ID is ' + id)
     } catch (error) {
-        console.error(err.message)
+        console.error(error.message)
     }
 })
 //delete
@@ -68,11 +72,12 @@ app.delete('/food/:id', async(req, res) => {
 
 app.post('/food', async(req,res) => {
     try {
-        const {food_name, carbs, fats, proteins, calories} = req.body;
-         await pool.query('INSERT INTO food (food_name, carbs, fats, proteins, calories) VALUES ($1, $2, $3, $4, $5)', [food_name, carbs, fats, proteins, calories])
-        res.json(rows)
+        const {carbs, fats, protein, calories} = req.body;
+        const foodName = req.body.food_name
+         await pool.query('INSERT INTO food (food_name, carbs, fats, protein, calories) VALUES ($1, $2, $3, $4, $5)', [foodName, carbs, fats, protein, calories])
+        res.json('Added')
     } catch (error) {
-        console.error(err.message)
+        console.error(error)
     }
 })
 //start server

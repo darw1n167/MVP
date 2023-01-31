@@ -11,11 +11,6 @@ app.use(express.json());
 
 const pool = new Pool ({
         host: 'localhost',
-<<<<<<< HEAD
-        user: 'dweezy',
-=======
-        user: 'fatbo',
->>>>>>> refs/remotes/origin/main
         port: 5432,
         password: '',
         database: 'food'

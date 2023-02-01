@@ -15,6 +15,7 @@ let $fat = $('#fat')
 let $protein = $('#protein')
 let $calorie = $('#calorie')
 
+
 // const clearText = () => {
 //   let $typein = $('#typeIn');
 //   let $carb = $('#carb');
@@ -33,7 +34,7 @@ let $calorie = $('#calorie')
 
 
 const loadFood = async () => {
-  await fetch ('https://food-mvp.onrender.com/food')
+  await fetch ('/food')
   .then((response) => response.json())
   .then((data) => {
     data.forEach((element) => {
@@ -47,26 +48,37 @@ const loadFood = async () => {
       <td class="entry">${element.calories}</td>
       <td class="buttons">
       <div class="dropdown">
-        <button class="edit" id="${element.id}">Edit</button>
+        <button class="edit">Edit</button>
       <button class="delete" id="${element.id}">Delete</button>
       </div>
       </td>
     </tr>`);
 
-    // $edit.click((e)=>{
-    //   console.log('Clicked')
-    // })
-    // $delete.click((e)=>{
-    //   console.log('Clicked')
-    // })
-
 
     $tableBody.append(tBody);
+    
+    $(`.delete`).on("click", async function(e) {
+      const {id} = this;
+       fetch(`/food/${id}`, {
+        method: 'DELETE'
+      }).then((response)=> {
+        if(response.ok)  {
+          console.log('Data was deleted')
+        } else {
+          console.error('Failed to delete')
+        }
+
+      })
+    });
+   
 
 
     });
   });
 }
+
+
+
 
 
 const populate = (data) => {
@@ -76,7 +88,7 @@ const populate = (data) => {
 
 $add.on('click', async (e) => {
   try {     
-    const response = await fetch('https://food-mvp.onrender.com/food', {
+    const response = await fetch('/food', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

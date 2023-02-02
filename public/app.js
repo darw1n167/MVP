@@ -18,7 +18,7 @@ let changeButtons = document.querySelectorAll('.change');
 let inputDisplay = false;
 
 const loadFood = async () => {
-  await fetch ('http://localhost:8000/food')
+  await fetch ('/food')
   .then((response) => response.json())
   .then((data) => {
     data.forEach((element) => {
@@ -53,7 +53,7 @@ const loadFood = async () => {
         let food = $(`#food-${element.id}`)
         let {id} = this;
         console.log(id)
-        fetch(`http://localhost:8000/food/${id}`, {
+        fetch(`/food/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ const loadFood = async () => {
       e.preventDefault();
       const {id} = this;
       console.log(id)
-       fetch(`http://localhost:8000/food/${id}`, {
+       fetch(`/food/${id}`, {
         method: 'DELETE'
       }).then((response)=> {
         if(response.ok)  {
@@ -140,7 +140,7 @@ const loadFood = async () => {
 $add.on('click', async (e) => {
   e.preventDefault();
   try {     
-    const response = await fetch('http://localhost:8000/food', {
+    const response = await fetch('/food', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

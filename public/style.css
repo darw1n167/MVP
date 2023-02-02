@@ -4,7 +4,7 @@ body {
 
 
 #entries {
-    height: 800px;
+    height: 500px;
 }
 
 .table {
@@ -21,6 +21,8 @@ body {
     border: 2px lightgray solid;
     margin-right: 400px;
     margin-left: 400px;
+    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
 }
 
 #home {
@@ -40,6 +42,7 @@ body {
     margin-right: 650px;
     margin-left: 650px;
     background-color: lightgray;
+    
     /* justify-items: center;
     align-items: center; */
 }

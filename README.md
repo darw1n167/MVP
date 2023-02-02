@@ -1,1 +1,1 @@
-# This is my MVP full stack project that is a Macro Tracker to track macronutrients
+# MVP full stack project that is a Macro Tracker 

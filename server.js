@@ -15,7 +15,7 @@ const pool = new Pool ({
         // host: 'localhost',
         // port: 5432,
         // password: '',
-        // database: 'food',
+        // database: 'food'
         connectionString: process.env.DATABASE_URL
 });
 
